@@ -174,7 +174,7 @@ with tab1:
             title='Distribuição de Vendas por Vendedor'
         )
         st.plotly_chart(fig_pie)
-
+     #tttt
     with row2_col1:
         # Gráfico de linhas com duas métricas
         fig_line = px.line(
