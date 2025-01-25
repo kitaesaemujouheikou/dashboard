@@ -29,11 +29,11 @@ st.markdown(
 
 # Configurar a conexão
 conn = psycopg2.connect(
-    dbname="DWBI_Frigovel",
+    dbname="DW_Frigovel",
     user="postgres",
     password="superusuario",
-    host="187.19.100.238",
-    port="5440"
+    host="host.docker.internal",
+    port="5434"
 )
 
 # Consultar dados usando pandas diretamente
