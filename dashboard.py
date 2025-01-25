@@ -29,7 +29,7 @@ st.markdown(
 
 # Configurar a conexão
 conn = psycopg2.connect(
-    dbname="DW_Frigovel",
+    dbname="DWBI_Frigovel",
     user="postgres",
     password="superusuario",
     host="host.docker.internal",
