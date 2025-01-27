@@ -29,11 +29,11 @@ st.markdown(
 
 # Configurar a conexão
 conn = psycopg2.connect(
-    dbname="DW_Frigovel",
+    dbname="DWBI_Frigovel",
     user="postgres",
     password="superusuario",
-    host="localhost",
-    port="5434"
+    host="host.docker.internal",
+    port="5432"
 )
 
 # Consultar dados usando pandas diretamente
@@ -46,8 +46,10 @@ st.sidebar.header("Filtros:")
 # Opções de filtro
 anos = df["ano"].unique().tolist()
 anos.insert(0, "Todos")
+
 meses = df["mes"].unique().tolist()
 meses.insert(0, "Todos")
+
 apelidos = df["apelido"].unique().tolist()
 apelidos.insert(0, "Todos")
 
@@ -68,14 +70,14 @@ apelido = st.sidebar.multiselect(
     default="Todos"  # Seleciona "Todos" por padrão
 )
 
-# Aplicar filtros de forma eficiente
+#Aplicar filtros de forma eficiente
 if "Todos" in ano:
     ano = df["ano"].unique()
 if "Todos" in mes:
     mes = df["mes"].unique()
 if "Todos" in apelido:
     apelido = df["apelido"].unique()
-
+    
 df_filtered = df[df['ano'].isin(ano) & df['mes'].isin(mes) & df['apelido'].isin(apelido)]
 
 # Calcular a soma total das vendas e a quantidade total
